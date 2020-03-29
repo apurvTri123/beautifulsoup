@@ -1237,6 +1237,9 @@ class Tag(PageElement):
         return r
     findChild = find
 
+    def countTag(self,tag):
+        return len(self.find_all(tag))
+
     def find_all(self, name=None, attrs={}, recursive=True, text=None,
                  limit=None, **kwargs):
         """Extracts a list of Tag objects that match the given
