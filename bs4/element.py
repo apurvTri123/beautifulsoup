@@ -1240,25 +1240,13 @@ class Tag(PageElement):
     def countTag(self,*params):
         _res = {}
         tags = ["div","span","table","tr","a"]
-        print("params--->",params[0],type(params[0]))
-        if params :
+        if params[0] and type(params[0])==list :
+            
             tags=params[0]
-            try:
-                if  type(tags) is not None:
-                    listType = type(tags) is list
-                    if listType:
-                        stringValue =all([s for s in tags if type(s) == str])
-                        if not stringValue:
-                            raise Exception('List contain other than string values')
-                    else:
-                        raise Exception('Parameter is not an list or empty')
-            except:
-                print("Oops!  Something wrong in parameters...")
-
+               
         for t in tags:
-            print("check--->",type(t),t)
+            
             _res.update({str(t) : len(self.findAll(t))})
-        # return len(self.findAll(tags))
         return _res
 
     def find_all(self, name=None, attrs={}, recursive=True, text=None,
