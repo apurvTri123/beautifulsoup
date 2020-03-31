@@ -1237,15 +1237,12 @@ class Tag(PageElement):
         return r
     findChild = find
 
-    def countTag(self,*params):
+    def countTag(self, *params):
         _res = {}
-        tags = ["div","span","table","tr","a"]
-        if params[0] and type(params[0])==list :
-            
-            tags=params[0]
-               
-        for t in tags:
-            
+        _tags = ["div","span","table","tr","a"]
+        if type(params)==list :
+            _tags=params
+        for t in _tags:
             _res.update({str(t) : len(self.findAll(t))})
         return _res
 
