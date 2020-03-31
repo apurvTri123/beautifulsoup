@@ -1243,8 +1243,18 @@ class Tag(PageElement):
         print("params--->",params[0],type(params[0]))
         if params :
             tags=params[0]
-            print("tags-->",type(tags),tags,params,type(list(tags)))
-        # print("tags-----outside if---->",tags,type(tags))
+            try:
+                if  type(tags) is not None:
+                    listType = type(tags) is list
+                    if listType:
+                        stringValue =all([s for s in tags if type(s) == str])
+                        if not stringValue:
+                            raise Exception('List contain other than string values')
+                    else:
+                        raise Exception('Parameter is not an list or empty')
+            except:
+                print("Oops!  Something wrong in parameters...")
+
         for t in tags:
             print("check--->",type(t),t)
             _res.update({str(t) : len(self.findAll(t))})
