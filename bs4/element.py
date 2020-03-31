@@ -1240,7 +1240,7 @@ class Tag(PageElement):
     def countTag(self,*params):
         _res = {}
         tags = ["div","span","table","tr","a"]
-        print("params--->",params[0],type(params[0]))
+        # print("params--->",params[0],type(params[0]))
         if params :
             tags=params[0]
             print("tags-->",type(tags),tags,params,type(list(tags)))
