@@ -1240,8 +1240,10 @@ class Tag(PageElement):
     def countTag(self, *params):
         _res = {}
         _tags = ["div","span","table","tr","a"]
-        if type(params)==list :
-            _tags=params
+        if params : 
+
+            if type(params[0])==list :
+                _tags=params[0]
         for t in _tags:
             _res.update({str(t) : len(self.findAll(t))})
         return _res
